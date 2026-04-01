@@ -6,9 +6,9 @@
   <title>CA Zoning Assist</title>
   <style>
     :root {
-      --bg: #f2f6f2;        /* soft green base */
-      --surface: #fbfaf7;   /* warm beige cards */
-      --soft: #e8f2ec;      /* subtle green accent */
+      --bg: #f2f6f2;
+      --surface: #fbfaf7;
+      --soft: #e8f2ec;
       --text: #1f2937;
       --muted: #6b7280;
       --line: #e5e7eb;
@@ -21,11 +21,17 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
+    html[lang="es"] .lang-en,
+    html[lang="en"] .lang-es {
+      display: none;
+    }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: linear-gradient(180deg, #eef5ef 0%, #f7f4ef 100%);
       line-height: 1.55;
     }
 
@@ -64,6 +70,7 @@
       flex-wrap: wrap;
       font-size: 0.95rem;
       color: var(--muted);
+      align-items: center;
     }
 
     .hero {
@@ -106,6 +113,7 @@
     h3 { font-size: 1.1rem; }
 
     p { margin: 0 0 1rem; }
+
     .lead {
       font-size: 1.08rem;
       color: #374151;
@@ -131,17 +139,37 @@
       align-items: center;
       justify-content: center;
       transition: transform 0.15s ease, opacity 0.15s ease;
+      font: inherit;
     }
 
     .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
       background: var(--accent);
       color: white;
     }
+
     .btn-secondary {
       background: white;
       color: var(--text);
       border: 1px solid var(--line);
+    }
+
+    .lang-toggle {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.65rem 0.95rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
     }
 
     .hero-side {
@@ -297,10 +325,23 @@
     <div class="container nav-inner">
       <div class="brand">CA Zoning Assist</div>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#value">Why This Helps</a>
-        <a href="about.html">Who We Are</a>
-        <a href="#intake">Get Started</a>
+        <a href="#services">
+          <span class="lang-en">Services</span>
+          <span class="lang-es">Servicios</span>
+        </a>
+        <a href="#value">
+          <span class="lang-en">Why This Helps</span>
+          <span class="lang-es">Por Qué Esto Ayuda</span>
+        </a>
+        <a href="about.html">
+          <span class="lang-en">Who We Are</span>
+          <span class="lang-es">Quiénes Somos</span>
+        </a>
+        <a href="#intake">
+          <span class="lang-en">Get Started</span>
+          <span class="lang-es">Comenzar</span>
+        </a>
+        <button class="lang-toggle" id="langToggle" type="button">Español</button>
       </div>
     </div>
   </nav>
@@ -308,35 +349,81 @@
   <header class="hero">
     <div class="container hero-grid">
       <div class="card hero-copy">
-        <div class="eyebrow">Independent permit + zoning guidance</div>
-        <h1>Clarity before you contact the City.</h1>
-        <p class="lead">
-          I help homeowners, small business owners, and property owners understand likely zoning and permit issues before they spend time on applications, revisions, or consultant fees.
-        </p>
-        <p>
-          Whether you are exploring an ADU, a home occupation, a tenant improvement, a new business use, or a property change that feels confusing, I provide a plain-English review of what may apply, what issues may come up, and what questions you should be ready to answer.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#intake">Start the Questionnaire</a>
-          <a class="btn btn-secondary" href="#services">See Services</a>
+        <div class="eyebrow">
+          <span class="lang-en">Independent permit + project guidance</span>
+          <span class="lang-es">Orientación independiente sobre permisos y proyectos</span>
         </div>
+
+        <h1>
+          <span class="lang-en">Clarity before you contact the City.</span>
+          <span class="lang-es">Claridad antes de comunicarse con la Ciudad.</span>
+        </h1>
+
+        <p class="lead">
+          <span class="lang-en">
+            We help homeowners, small business owners, and property owners understand likely permit and project issues before they spend time on applications, revisions, or consultant fees.
+          </span>
+          <span class="lang-es">
+            Ayudamos a propietarios de viviendas, pequeños negocios y dueños de inmuebles a entender posibles requisitos y obstáculos antes de invertir tiempo en solicitudes, revisiones o servicios costosos.
+          </span>
+        </p>
+
+        <p>
+          <span class="lang-en">
+            Whether you are exploring a small unit, a home-based business, a tenant improvement, a new business use, or a property change that feels confusing, we provide a plain-English review of what may apply, what issues may come up, and what questions you should be ready to answer.
+          </span>
+          <span class="lang-es">
+            Ya sea que esté explorando una unidad pequeña, un negocio desde casa, una mejora para inquilinos, un nuevo uso comercial o un cambio en su propiedad que resulte confuso, ofrecemos una revisión clara y sencilla sobre lo que puede aplicar, qué problemas podrían surgir y qué preguntas conviene estar preparado para responder.
+          </span>
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#intake">
+            <span class="lang-en">Start the Questionnaire</span>
+            <span class="lang-es">Comenzar el Cuestionario</span>
+          </a>
+          <a class="btn btn-secondary" href="#services">
+            <span class="lang-en">See Services</span>
+            <span class="lang-es">Ver Servicios</span>
+          </a>
+        </div>
+
         <p class="small" style="margin-top: 1rem;">
-          Not affiliated with any city, county, or public agency. Independent consulting only.
+          <span class="lang-en">
+            Not affiliated with any city, county, or public agency. Independent consulting only.
+          </span>
+          <span class="lang-es">
+            No estamos afiliados con ninguna ciudad, condado ni agencia pública. Consultoría independiente únicamente.
+          </span>
         </p>
       </div>
 
       <div class="card hero-side">
         <div class="mini-stat">
-          <strong>What you get</strong>
-          A practical first-pass review of your project idea, likely issues, and next-step questions.
+          <strong>
+            <span class="lang-en">What you get</span>
+            <span class="lang-es">Lo que recibe</span>
+          </strong>
+          <span class="lang-en">A practical first-pass review of your project idea, likely issues, and next-step questions.</span>
+          <span class="lang-es">Una revisión práctica inicial de su idea de proyecto, posibles problemas y las preguntas clave para avanzar.</span>
         </div>
+
         <div class="mini-stat">
-          <strong>Best for</strong>
-          Early feasibility, correction-letter confusion, and projects that need a clearer path before formal submittal.
+          <strong>
+            <span class="lang-en">Best for</span>
+            <span class="lang-es">Ideal para</span>
+          </strong>
+          <span class="lang-en">Early feasibility, confusing review comments, and projects that need a clearer path before formal submittal.</span>
+          <span class="lang-es">Evaluación temprana, comentarios de revisión confusos y proyectos que necesitan una ruta más clara antes de una presentación formal.</span>
         </div>
+
         <div class="mini-stat">
-          <strong>Common topics</strong>
-          ADUs, garages, home occupations, business uses, parking questions, use changes, and permit process guidance.
+          <strong>
+            <span class="lang-en">Common topics</span>
+            <span class="lang-es">Temas comunes</span>
+          </strong>
+          <span class="lang-en">Garage conversions, home-based businesses, parking questions, use changes, and permit process guidance.</span>
+          <span class="lang-es">Conversiones de garaje, negocios desde casa, preguntas sobre estacionamiento, cambios de uso y orientación sobre el proceso de permisos.</span>
         </div>
       </div>
     </div>
@@ -346,37 +433,93 @@
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>Services</h2>
+          <h2>
+            <span class="lang-en">Services</span>
+            <span class="lang-es">Servicios</span>
+          </h2>
           <p class="muted">
-            Simple, focused help for clients who want to understand the likely rules, risks, and path forward before committing to a full design or permit process.
+            <span class="lang-en">
+              Simple, focused help for clients who want to understand the likely rules, risks, and path forward before committing to a full design or permit process.
+            </span>
+            <span class="lang-es">
+              Ayuda simple y enfocada para clientes que quieren entender los posibles requisitos, riesgos y el camino a seguir antes de comprometerse con un proceso completo de diseño o permisos.
+            </span>
           </p>
         </div>
+
         <div class="grid-3">
           <div class="card service-card">
-            <h3>Project Feasibility Review</h3>
-            <p>A first-pass review of a property idea such as an ADU, home business, tenant improvement, or proposed change in use.</p>
+            <h3>
+              <span class="lang-en">Project Feasibility Review</span>
+              <span class="lang-es">Revisión de Viabilidad del Proyecto</span>
+            </h3>
+            <p>
+              <span class="lang-en">A first-pass review of a property idea such as a small unit, home business, tenant improvement, or proposed change in use.</span>
+              <span class="lang-es">Una revisión inicial de una idea de proyecto, como una unidad pequeña, negocio desde casa, mejora para inquilinos o cambio de uso propuesto.</span>
+            </p>
             <ul class="checklist">
-              <li>Likely zoning and land use issues</li>
-              <li>Questions a jurisdiction may ask</li>
-              <li>Recommended next steps</li>
+              <li>
+                <span class="lang-en">Likely project issues</span>
+                <span class="lang-es">Posibles problemas del proyecto</span>
+              </li>
+              <li>
+                <span class="lang-en">Questions an agency may ask</span>
+                <span class="lang-es">Preguntas que una agencia puede hacer</span>
+              </li>
+              <li>
+                <span class="lang-en">Recommended next steps</span>
+                <span class="lang-es">Próximos pasos recomendados</span>
+              </li>
             </ul>
           </div>
+
           <div class="card service-card">
-            <h3>Correction Letter Decoder</h3>
-            <p>Translation of planning or permit comments into plain English, with practical suggestions on how to organize a response.</p>
+            <h3>
+              <span class="lang-en">Correction Letter Decoder</span>
+              <span class="lang-es">Interpretación de Comentarios</span>
+            </h3>
+            <p>
+              <span class="lang-en">Translation of planning or permit comments into plain English, with practical suggestions on how to organize a response.</span>
+              <span class="lang-es">Traducción de comentarios de planificación o permisos a lenguaje claro, con sugerencias prácticas sobre cómo organizar una respuesta.</span>
+            </p>
             <ul class="checklist">
-              <li>Comment summary</li>
-              <li>Issue grouping by topic</li>
-              <li>Suggested response strategy</li>
+              <li>
+                <span class="lang-en">Comment summary</span>
+                <span class="lang-es">Resumen de comentarios</span>
+              </li>
+              <li>
+                <span class="lang-en">Issue grouping by topic</span>
+                <span class="lang-es">Agrupación de temas por asunto</span>
+              </li>
+              <li>
+                <span class="lang-en">Suggested response strategy</span>
+                <span class="lang-es">Estrategia sugerida de respuesta</span>
+              </li>
             </ul>
           </div>
+
           <div class="card service-card">
-            <h3>Pre-Submittal Reality Check</h3>
-            <p>A light review intended to identify common land use and process issues before formal filing.</p>
+            <h3>
+              <span class="lang-en">Pre-Submittal Reality Check</span>
+              <span class="lang-es">Revisión Antes de Presentar</span>
+            </h3>
+            <p>
+              <span class="lang-en">A light review intended to identify common process or project issues before formal filing.</span>
+              <span class="lang-es">Una revisión ligera destinada a identificar problemas comunes del proceso o del proyecto antes de una presentación formal.</span>
+            </p>
             <ul class="checklist">
-              <li>Potential red flags</li>
-              <li>Missing information</li>
-              <li>Scope and process observations</li>
+              <li>
+                <span class="lang-en">Potential red flags</span>
+                <span class="lang-es">Posibles señales de alerta</span>
+              </li>
+              <li>
+                <span class="lang-en">Missing information</span>
+                <span class="lang-es">Información faltante</span>
+              </li>
+              <li>
+                <span class="lang-en">Scope and process observations</span>
+                <span class="lang-es">Observaciones sobre alcance y proceso</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -386,28 +529,68 @@
     <section id="value">
       <div class="container">
         <div class="section-head">
-          <h2>Empowering you to take the reins</h2>
-            <p class="muted">
+          <h2>
+            <span class="lang-en">Empowering you to take the reins</span>
+            <span class="lang-es">Ayudándole a tomar el control</span>
+          </h2>
+          <p class="muted">
+            <span class="lang-en">
               No one knows your project better than you. We’re here to help you understand what to expect, what might come up, and how to move forward — without the cost of full-service consulting right out of the gate.
-            </p>
+            </span>
+            <span class="lang-es">
+              Nadie conoce su proyecto mejor que usted. Estamos aquí para ayudarle a entender qué esperar, qué podría surgir y cómo avanzar, sin asumir desde el principio el costo de una consultoría completa.
+            </span>
+          </p>
         </div>
+
         <div class="two-col">
           <div class="card value-card">
-            <h3>The value</h3>
+            <h3>
+              <span class="lang-en">The value</span>
+              <span class="lang-es">El valor</span>
+            </h3>
             <ul class="checklist">
-              <li>Reduce uncertainty before spending heavily on plans or consultants</li>
-              <li>Understand likely zoning and permit questions earlier</li>
-              <li>Avoid preventable application delays</li>
-              <li>Get a cleaner picture of your project path</li>
+              <li>
+                <span class="lang-en">Reduce uncertainty before spending heavily on plans or consultants</span>
+                <span class="lang-es">Reducir la incertidumbre antes de gastar mucho en planos o consultores</span>
+              </li>
+              <li>
+                <span class="lang-en">Understand likely permit questions earlier</span>
+                <span class="lang-es">Entender antes las posibles preguntas del proceso</span>
+              </li>
+              <li>
+                <span class="lang-en">Avoid preventable application delays</span>
+                <span class="lang-es">Evitar retrasos prevenibles en la solicitud</span>
+              </li>
+              <li>
+                <span class="lang-en">Get a cleaner picture of your project path</span>
+                <span class="lang-es">Obtener una visión más clara del camino de su proyecto</span>
+              </li>
             </ul>
           </div>
+
           <div class="card value-card">
-            <h3>What this is not</h3>
+            <h3>
+              <span class="lang-en">What this is not</span>
+              <span class="lang-es">Lo que esto no es</span>
+            </h3>
             <ul class="checklist">
-              <li>Not legal advice</li>
-              <li>Not engineering, architectural, or surveying services</li>
-              <li>Not a guarantee of jurisdictional approval</li>
-              <li>Not affiliated with any city, county, or agency</li>
+              <li>
+                <span class="lang-en">Not legal advice</span>
+                <span class="lang-es">No es asesoría legal</span>
+              </li>
+              <li>
+                <span class="lang-en">Not engineering, architectural, or surveying services</span>
+                <span class="lang-es">No son servicios de ingeniería, arquitectura ni topografía</span>
+              </li>
+              <li>
+                <span class="lang-en">Not a guarantee of approval</span>
+                <span class="lang-es">No es una garantía de aprobación</span>
+              </li>
+              <li>
+                <span class="lang-en">Not affiliated with any city, county, or agency</span>
+                <span class="lang-es">No está afiliado con ninguna ciudad, condado ni agencia</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -417,9 +600,17 @@
     <section id="intake">
       <div class="container">
         <div class="section-head">
-          <h2>Project questionnaire</h2>
+          <h2>
+            <span class="lang-en">Project Questionnaire</span>
+            <span class="lang-es">Cuestionario del Proyecto</span>
+          </h2>
           <p class="muted">
-            Fill this out and click <strong>Generate Inquiry</strong>. The page will build a message you can copy and send by email.
+            <span class="lang-en">
+              Fill this out and click <strong>Generate Inquiry</strong>. The page will build a message you can copy and send by email.
+            </span>
+            <span class="lang-es">
+              Complete esto y haga clic en <strong>Generar Consulta</strong>. La página creará un mensaje que podrá copiar y enviar por correo electrónico.
+            </span>
           </p>
         </div>
 
@@ -427,81 +618,145 @@
           <form id="intakeForm">
             <div class="field-grid">
               <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" />
+                <label for="name">
+                  <span class="lang-en">Name</span>
+                  <span class="lang-es">Nombre</span>
+                </label>
+                <input id="name" name="name" type="text" placeholder="Your name / Su nombre" />
               </div>
               <div>
-                <label for="email">Email</label>
+                <label for="email">
+                  <span class="lang-en">Email</span>
+                  <span class="lang-es">Correo Electrónico</span>
+                </label>
                 <input id="email" name="email" type="email" placeholder="you@example.com" />
               </div>
             </div>
 
             <div class="field-grid">
               <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="text" placeholder="Optional" />
+                <label for="phone">
+                  <span class="lang-en">Phone</span>
+                  <span class="lang-es">Teléfono</span>
+                </label>
+                <input id="phone" name="phone" type="text" placeholder="Optional / Opcional" />
               </div>
               <div>
-                <label for="propertyType">Property Type</label>
+                <label for="propertyType">
+                  <span class="lang-en">Property Type</span>
+                  <span class="lang-es">Tipo de Propiedad</span>
+                </label>
                 <select id="propertyType" name="propertyType">
-                  <option value="">Select one</option>
-                  <option>Single-family residential</option>
-                  <option>Multi-family residential</option>
-                  <option>Commercial</option>
-                  <option>Industrial</option>
-                  <option>Mixed-use</option>
-                  <option>Vacant land</option>
-                  <option>Other</option>
+                  <option value="">
+                    <span class="lang-en">Select one</span>
+                    <span class="lang-es">Seleccione una opción</span>
+                  </option>
+                  <option>Single-family residential / Residencial unifamiliar</option>
+                  <option>Multi-family residential / Residencial multifamiliar</option>
+                  <option>Commercial / Comercial</option>
+                  <option>Industrial / Industrial</option>
+                  <option>Mixed-use / Uso mixto</option>
+                  <option>Vacant land / Terreno vacante</option>
+                  <option>Other / Otro</option>
                 </select>
               </div>
             </div>
 
             <div class="field-grid">
               <div>
-                <label for="location">Property Address or City</label>
-                <input id="location" name="location" type="text" placeholder="Address, APN, or at least the city" />
+                <label for="location">
+                  <span class="lang-en">Property Address or City</span>
+                  <span class="lang-es">Dirección de la Propiedad o Ciudad</span>
+                </label>
+                <input id="location" name="location" type="text" placeholder="Address, APN, or at least the city / Dirección, APN, o al menos la ciudad" />
               </div>
               <div>
-                <label for="serviceType">Type of Help Needed</label>
+                <label for="serviceType">
+                  <span class="lang-en">Type of Help Needed</span>
+                  <span class="lang-es">Tipo de Ayuda Necesaria</span>
+                </label>
                 <select id="serviceType" name="serviceType">
-                  <option value="">Select one</option>
-                  <option>Project feasibility review</option>
-                  <option>Correction letter review</option>
-                  <option>Pre-submittal reality check</option>
-                  <option>General zoning/process guidance</option>
+                  <option value="">Select one / Seleccione una opción</option>
+                  <option>Project feasibility review / Revisión de viabilidad del proyecto</option>
+                  <option>Correction letter review / Revisión de comentarios</option>
+                  <option>Pre-submittal reality check / Revisión antes de presentar</option>
+                  <option>General project/process guidance / Orientación general del proceso</option>
                 </select>
               </div>
             </div>
 
             <div>
-              <label for="projectSummary">Describe the project or question</label>
-              <textarea id="projectSummary" name="projectSummary" placeholder="Example: I want to convert an existing garage space into a small ADU and need to understand likely zoning and permit issues."></textarea>
+              <label for="projectSummary">
+                <span class="lang-en">Describe the project or question</span>
+                <span class="lang-es">Describa el proyecto o la pregunta</span>
+              </label>
+              <textarea id="projectSummary" name="projectSummary" placeholder="Example / Ejemplo: I want to convert an existing garage space into a small unit and need to understand likely permit issues."></textarea>
             </div>
 
             <div>
-              <label for="materials">Do you already have any materials?</label>
-              <textarea id="materials" name="materials" placeholder="Plans, site plan, correction letter, photos, prior emails, permit comments, etc."></textarea>
-              <div class="form-note">Please indicate the type of materials you have and how you would like to share them (email attachment, Dropbox link, ect.) </div>
+              <label for="materials">
+                <span class="lang-en">Do you already have any materials?</span>
+                <span class="lang-es">¿Ya tiene materiales o documentos?</span>
+              </label>
+              <textarea id="materials" name="materials" placeholder="Plans, site plan, correction letter, photos, prior emails, permit comments, etc. / Planos, plano del sitio, comentarios, fotos, correos previos, etc."></textarea>
+              <div class="form-note">
+                <span class="lang-en">Please indicate the type of materials you have and how you would like to share them (email attachment, Dropbox link, etc.).</span>
+                <span class="lang-es">Indique qué tipo de materiales tiene y cómo le gustaría compartirlos (archivo adjunto por correo, enlace de Dropbox, etc.).</span>
+              </div>
             </div>
 
             <div>
-              <label for="timeline">Timeline or urgency</label>
-              <input id="timeline" name="timeline" type="text" placeholder="Example: Just exploring / Need help this week / Responding to comments" />
+              <label for="timeline">
+                <span class="lang-en">Timeline or urgency</span>
+                <span class="lang-es">Plazo o urgencia</span>
+              </label>
+              <input id="timeline" name="timeline" type="text" placeholder="Example / Ejemplo: Just exploring / Need help this week / Responding to comments" />
             </div>
 
             <div>
-              <label for="goals">What outcome are you hoping for?</label>
-              <textarea id="goals" name="goals" placeholder="Example: I want to know whether this seems feasible and what issues are likely before I hire a designer."></textarea>
+              <label for="goals">
+                <span class="lang-en">What outcome are you hoping for?</span>
+                <span class="lang-es">¿Qué resultado espera obtener?</span>
+              </label>
+              <textarea id="goals" name="goals" placeholder="Example / Ejemplo: I want to know whether this seems feasible and what issues are likely before I hire a designer."></textarea>
             </div>
 
             <div class="hero-actions">
-              <button class="btn btn-primary" type="submit">Generate Inquiry</button>
-              <button class="btn btn-secondary" type="button" id="copyBtn">Copy Text</button>
-              <button class="btn btn-secondary" type="button" id="emailBtn">Open Email Draft</button>
+              <button class="btn btn-primary" type="submit">
+                <span class="lang-en">Generate Inquiry</span>
+                <span class="lang-es">Generar Consulta</span>
+              </button>
+              <button class="btn btn-secondary" type="button" id="copyBtn">
+                <span class="lang-en">Copy Text</span>
+                <span class="lang-es">Copiar Texto</span>
+              </button>
+              <button class="btn btn-secondary" type="button" id="emailBtn">
+                <span class="lang-en">Open Email Draft</span>
+                <span class="lang-es">Abrir Borrador de Correo</span>
+              </button>
             </div>
           </form>
 
           <div id="output" class="output"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card value-card">
+          <h3>
+            <span class="lang-en">Spanish Language Support</span>
+            <span class="lang-es">Atención en Español</span>
+          </h3>
+          <p>
+            <span class="lang-en">
+              Spanish-language assistance may be available upon request. In some cases, translation or interpretation support may involve the use of AI-assisted language tools to help facilitate communication.
+            </span>
+            <span class="lang-es">
+              La asistencia en español puede estar disponible a solicitud. En algunos casos, la traducción o interpretación puede incluir el uso de herramientas de lenguaje asistidas por inteligencia artificial para facilitar la comunicación.
+            </span>
+          </p>
         </div>
       </div>
     </section>
@@ -510,8 +765,17 @@
   <footer class="footer">
     <div class="container">
       <p><strong>CA Zoning Assist</strong></p>
-      <p>Independent consulting for early-stage zoning, permit, and project feasibility questions.</p>
-      <p class="small"><p class="small"> Most inquiries are reviewed within 2–3 business days (excluding holidays). Pricing is based on scope, with clear, upfront quotes provided before any work begins — no surprises. In limited cases, alternative compensation arrangements may be considered. If you are interested in proposing a trade or exchange of goods or services, please indicate this in your inquiry for review.
+      <p>
+        <span class="lang-en">Independent consulting for early-stage permit, project, and feasibility questions.</span>
+        <span class="lang-es">Consultoría independiente para preguntas iniciales sobre permisos, proyectos y viabilidad.</span>
+      </p>
+      <p class="small">
+        <span class="lang-en">
+          Most inquiries are reviewed within 2–3 business days, excluding holidays. Pricing is based on scope, with clear, upfront quotes provided before any work begins. In limited cases, alternative compensation arrangements may be considered. If you would like to propose a trade or exchange of goods or services, please indicate that in your inquiry for review.
+        </span>
+        <span class="lang-es">
+          La mayoría de las consultas se revisan dentro de 2 a 3 días hábiles, excluyendo días festivos. Los precios se basan en el alcance del trabajo, con cotizaciones claras y por adelantado antes de comenzar. En casos limitados, se pueden considerar acuerdos alternativos de compensación. Si desea proponer un intercambio de bienes o servicios, indíquelo en su consulta para evaluación.
+        </span>
       </p>
     </div>
   </footer>
@@ -521,8 +785,53 @@
     const output = document.getElementById('output');
     const copyBtn = document.getElementById('copyBtn');
     const emailBtn = document.getElementById('emailBtn');
+    const langToggle = document.getElementById('langToggle');
+    const root = document.documentElement;
+
+    function getCurrentLang() {
+      return root.getAttribute('lang') === 'es' ? 'es' : 'en';
+    }
+
+    function setLanguage(lang) {
+      root.setAttribute('lang', lang);
+      localStorage.setItem('siteLang', lang);
+      langToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    }
+
+    const savedLang = localStorage.getItem('siteLang') || 'en';
+    setLanguage(savedLang);
+
+    langToggle.addEventListener('click', function () {
+      setLanguage(getCurrentLang() === 'en' ? 'es' : 'en');
+    });
 
     function buildInquiry(data) {
+      const lang = getCurrentLang();
+
+      if (lang === 'es') {
+        return [
+          'Nueva Consulta de Cliente',
+          '=========================',
+          '',
+          `Nombre: ${data.name || 'No proporcionado'}`,
+          `Correo Electrónico: ${data.email || 'No proporcionado'}`,
+          `Teléfono: ${data.phone || 'No proporcionado'}`,
+          `Tipo de Propiedad: ${data.propertyType || 'No proporcionado'}`,
+          `Ubicación: ${data.location || 'No proporcionado'}`,
+          `Servicio Solicitado: ${data.serviceType || 'No proporcionado'}`,
+          `Plazo: ${data.timeline || 'No proporcionado'}`,
+          '',
+          'Resumen del Proyecto:',
+          data.projectSummary || 'No proporcionado',
+          '',
+          'Materiales Existentes:',
+          data.materials || 'No proporcionado',
+          '',
+          'Resultado Deseado:',
+          data.goals || 'No proporcionado'
+        ].join('\n');
+      }
+
       return [
         'New Client Inquiry',
         '===================',
@@ -559,26 +868,38 @@
 
     copyBtn.addEventListener('click', async function () {
       if (!latestInquiry) {
-        alert('Please generate the inquiry first.');
+        alert(getCurrentLang() === 'es'
+          ? 'Primero genere la consulta.'
+          : 'Please generate the inquiry first.');
         return;
       }
 
       try {
         await navigator.clipboard.writeText(latestInquiry);
-        alert('Inquiry copied to clipboard.');
+        alert(getCurrentLang() === 'es'
+          ? 'Consulta copiada al portapapeles.'
+          : 'Inquiry copied to clipboard.');
       } catch (err) {
-        alert('Copy failed. You can still manually copy the text below.');
+        alert(getCurrentLang() === 'es'
+          ? 'No se pudo copiar. Aún puede copiar manualmente el texto.'
+          : 'Copy failed. You can still manually copy the text below.');
       }
     });
 
     emailBtn.addEventListener('click', function () {
       if (!latestInquiry) {
-        alert('Please generate the inquiry first.');
+        alert(getCurrentLang() === 'es'
+          ? 'Primero genere la consulta.'
+          : 'Please generate the inquiry first.');
         return;
       }
 
       const yourEmail = 'replace-this@example.com';
-      const subject = encodeURIComponent('New Zoning / Permit Inquiry');
+      const subject = encodeURIComponent(
+        getCurrentLang() === 'es'
+          ? 'Nueva Consulta de Proyecto / Permiso'
+          : 'New Project / Permit Inquiry'
+      );
       const body = encodeURIComponent(latestInquiry);
       window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
     });
