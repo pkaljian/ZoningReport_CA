@@ -1,14 +1,14 @@
-<body>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CA Zoning Assist</title>
+  <title>About | CA Zoning Assist</title>
   <style>
     :root {
-      --bg: #f2f6f2;        /* soft green base */
-      --surface: #fbfaf7;   /* warm beige cards */
-      --soft: #e8f2ec;      /* subtle green accent */
+      --bg: #f2f6f2;
+      --surface: #fbfaf7;
+      --soft: #e8f2ec;
       --text: #1f2937;
       --muted: #6b7280;
       --line: #e5e7eb;
@@ -21,11 +21,17 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
+    html[lang="es"] .lang-en,
+    html[lang="en"] .lang-es {
+      display: none;
+    }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: linear-gradient(180deg, #eef5ef 0%, #f7f4ef 100%);
       line-height: 1.55;
     }
 
@@ -64,17 +70,11 @@
       flex-wrap: wrap;
       font-size: 0.95rem;
       color: var(--muted);
+      align-items: center;
     }
 
     .hero {
       padding: 4.5rem 0 3rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 1.5rem;
-      align-items: stretch;
     }
 
     .card {
@@ -106,71 +106,20 @@
     h3 { font-size: 1.1rem; }
 
     p { margin: 0 0 1rem; }
+
     .lead {
       font-size: 1.08rem;
       color: #374151;
       max-width: 60ch;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .btn {
-      appearance: none;
-      border: none;
-      text-decoration: none;
-      border-radius: 12px;
-      padding: 0.85rem 1.15rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-    .btn-secondary {
-      background: white;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .hero-side {
-      padding: 1.5rem;
-      display: grid;
-      gap: 1rem;
-      background: linear-gradient(180deg, #f5fbf9 0%, #ffffff 100%);
-    }
-
-    .mini-stat {
-      padding: 1rem;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-    }
-
-    .mini-stat strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
+    .section-head {
+      margin-bottom: 1.25rem;
+      max-width: 70ch;
     }
 
     section {
       padding: 1rem 0 2rem;
-    }
-
-    .section-head {
-      margin-bottom: 1.25rem;
-      max-width: 70ch;
     }
 
     .grid-3 {
@@ -189,76 +138,26 @@
       color: var(--muted);
     }
 
-    .checklist {
-      padding-left: 1.1rem;
-      margin: 0.75rem 0 0;
-    }
-
-    .checklist li { margin-bottom: 0.45rem; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-wrap {
-      padding: 1.5rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      font-size: 0.95rem;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      padding: 0.85rem 0.95rem;
-      font: inherit;
-      background: #fff;
-      color: var(--text);
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: 2px solid rgba(31,79,70,0.18);
-      border-color: var(--accent-2);
-    }
-
-    .form-note {
-      font-size: 0.92rem;
+    .small {
+      font-size: 0.9rem;
       color: var(--muted);
-      margin-top: -0.35rem;
     }
 
-    .output {
-      margin-top: 1rem;
-      background: #0f172a;
-      color: #e5e7eb;
-      border-radius: 14px;
-      padding: 1rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-      display: none;
+    .lang-toggle {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.65rem 0.95rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
     }
 
     .footer {
@@ -267,16 +166,8 @@
       font-size: 0.92rem;
     }
 
-    .small {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
     @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .two-col,
-      .field-grid {
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
@@ -285,19 +176,35 @@
       }
 
       .hero-copy,
-      .hero-side,
-      .form-wrap {
+      .service-card,
+      .value-card {
         padding: 1.25rem;
       }
     }
   </style>
+</head>
+<body>
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">CA Zoning Assist</div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#intake">Get Started</a>
+        <a href="index.html">
+          <span class="lang-en">Home</span>
+          <span class="lang-es">Inicio</span>
+        </a>
+        <a href="index.html#services">
+          <span class="lang-en">Services</span>
+          <span class="lang-es">Servicios</span>
+        </a>
+        <a href="about.html">
+          <span class="lang-en">Who We Are</span>
+          <span class="lang-es">Quiénes Somos</span>
+        </a>
+        <a href="index.html#intake">
+          <span class="lang-en">Get Started</span>
+          <span class="lang-es">Comenzar</span>
+        </a>
+        <button class="lang-toggle" id="langToggle" type="button">Español</button>
       </div>
     </div>
   </nav>
@@ -305,119 +212,246 @@
   <header class="hero">
     <div class="container">
       <div class="card hero-copy">
-        <div class="eyebrow">About</div>
-        <h1>Who We Are</h1>
+        <div class="eyebrow">
+          <span class="lang-en">About</span>
+          <span class="lang-es">Acerca de</span>
+        </div>
+        <h1>
+          <span class="lang-en">Who We Are</span>
+          <span class="lang-es">Quiénes Somos</span>
+        </h1>
         <p class="lead">
-          Practical experience in California land use, permitting, and project review — focused on helping people understand what they’re getting into before they commit time, money, and resources.
+          <span class="lang-en">
+            Practical experience in California land use, permitting, and project review — focused on helping people understand what they’re getting into before they commit time, money, and resources.
+          </span>
+          <span class="lang-es">
+            Experiencia práctica en uso de suelo, permisos y revisión de proyectos en California, enfocada en ayudar a las personas a entender en qué se están metiendo antes de comprometer tiempo, dinero y recursos.
+          </span>
         </p>
       </div>
     </div>
   </header>
 
-  <!-- OUR APPROACH -->
   <section>
     <div class="container">
       <div class="card value-card">
-        <h2>Our Approach</h2>
+        <h2>
+          <span class="lang-en">Our Approach</span>
+          <span class="lang-es">Nuestro Enfoque</span>
+        </h2>
 
         <p>
-          We’ve seen firsthand how overwhelming the permitting and development process can feel — especially for homeowners and small property owners who don’t deal with this every day. Between unfamiliar terminology, unclear requirements, and long timelines, it’s easy to feel like you need to hire someone just to figure out where to start.
+          <span class="lang-en">
+            We’ve seen firsthand how overwhelming the permitting and development process can feel, especially for homeowners and small property owners who do not deal with this every day. Between unfamiliar terminology, unclear requirements, and long timelines, it is easy to feel like you need to hire someone just to figure out where to start.
+          </span>
+          <span class="lang-es">
+            Hemos visto de primera mano lo abrumador que puede sentirse el proceso de permisos y desarrollo, especialmente para propietarios de viviendas y pequeños dueños de propiedades que no lidian con esto todos los días. Entre términos desconocidos, requisitos poco claros y plazos largos, es fácil sentir que necesita contratar a alguien solo para saber por dónde empezar.
+          </span>
         </p>
 
         <p>
-          In many cases, that uncertainty leads people to bring on full-service project managers or consultants earlier than necessary, often at significant cost. While those services absolutely have their place, they are not always needed at the very beginning.
+          <span class="lang-en">
+            In many cases, that uncertainty leads people to bring on full-service project managers or consultants earlier than necessary, often at significant cost. While those services can absolutely have their place, they are not always needed at the very beginning.
+          </span>
+          <span class="lang-es">
+            En muchos casos, esa incertidumbre lleva a las personas a contratar administradores de proyectos o consultores de servicio completo antes de que realmente sea necesario, a menudo con un costo importante. Aunque esos servicios sí pueden tener su lugar, no siempre son necesarios al inicio.
+          </span>
         </p>
 
         <p>
-          Our goal is to give you a clear starting point. We help you understand what you’re likely dealing with, what questions you should be asking, and what issues may come up — all in plain, straightforward language.
+          <span class="lang-en">
+            Our goal is to give you a clear starting point. We help you understand what you are likely dealing with, what questions you should be asking, and what issues may come up, all in plain, straightforward language.
+          </span>
+          <span class="lang-es">
+            Nuestro objetivo es darle un punto de partida claro. Le ayudamos a entender con qué probablemente está tratando, qué preguntas debería hacer y qué problemas podrían surgir, todo en un lenguaje claro y directo.
+          </span>
         </p>
 
         <p>
-          We believe that with the right information, many people are more capable than they think. This service is built to reduce the learning curve, remove the jargon barrier, and give you the confidence to move forward on your own terms — whether that means handling things yourself or bringing in help later, when you actually need it.
+          <span class="lang-en">
+            We believe that with the right information, many people are more capable than they think. This service is built to reduce the learning curve, remove the jargon barrier, and give you the confidence to move forward on your own terms, whether that means handling things yourself or bringing in help later when you actually need it.
+          </span>
+          <span class="lang-es">
+            Creemos que, con la información correcta, muchas personas son más capaces de lo que creen. Este servicio está diseñado para reducir la curva de aprendizaje, eliminar la barrera del lenguaje técnico y darle la confianza para avanzar a su manera, ya sea que decida manejarlo usted mismo o buscar ayuda más adelante cuando realmente la necesite.
+          </span>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section>
     <div class="container">
       <div class="card value-card">
-        <h2>Experience</h2>
+        <h2>
+          <span class="lang-en">Experience</span>
+          <span class="lang-es">Experiencia</span>
+        </h2>
 
         <p>
-          Our team brings experience working across multiple California jurisdictions, each with its own codes, processes, and expectations. This includes direct exposure to how zoning standards, development regulations, and permitting workflows are applied in practice — not just how they are written.
+          <span class="lang-en">
+            Our team brings experience working across multiple California jurisdictions, each with its own codes, processes, and expectations. This includes direct exposure to how development standards, local regulations, and permitting workflows are applied in practice, not just how they are written.
+          </span>
+          <span class="lang-es">
+            Nuestro equipo aporta experiencia trabajando en múltiples jurisdicciones de California, cada una con sus propios códigos, procesos y expectativas. Esto incluye experiencia directa sobre cómo se aplican en la práctica las normas de desarrollo, las regulaciones locales y los procesos de permisos, no solo cómo están redactados.
+          </span>
         </p>
 
         <p>
-          That multi-jurisdiction perspective provides a broader understanding of how different agencies approach project review, what tends to raise questions, and where applicants commonly run into delays.
+          <span class="lang-en">
+            That multi-jurisdiction perspective provides a broader understanding of how different agencies approach project review, what tends to raise questions, and where applicants commonly run into delays.
+          </span>
+          <span class="lang-es">
+            Esa perspectiva en múltiples jurisdicciones brinda una comprensión más amplia de cómo distintas agencias revisan proyectos, qué suele generar preguntas y en qué puntos los solicitantes comúnmente encuentran retrasos.
+          </span>
         </p>
 
         <p>
-          We also have experience with projects subject to environmental review, including work associated with CEQA documentation, initial studies, and early-stage environmental considerations. This informs a practical understanding of how environmental factors can influence project feasibility, scope, and timelines.
+          <span class="lang-en">
+            We also have experience with projects subject to environmental review, including work associated with CEQA documentation, initial studies, and early-stage environmental considerations. This informs a practical understanding of how environmental factors can influence project feasibility, scope, and timelines.
+          </span>
+          <span class="lang-es">
+            También tenemos experiencia con proyectos sujetos a revisión ambiental, incluido trabajo relacionado con documentación CEQA, estudios iniciales y consideraciones ambientales en etapas tempranas. Esto aporta una comprensión práctica de cómo los factores ambientales pueden influir en la viabilidad, el alcance y los plazos de un proyecto.
+          </span>
         </p>
 
         <p>
-          Across both residential and commercial contexts, we have supported a range of project types — from small home-based uses and property improvements to tenant improvements and use changes. This experience provides insight into how projects are evaluated, what common issues arise, and how to better prepare before engaging with a jurisdiction.
+          <span class="lang-en">
+            Across both residential and commercial contexts, we have supported a range of project types, from small home-based uses and property improvements to tenant improvements and changes in use. This experience provides insight into how projects are evaluated, what common issues arise, and how to better prepare before engaging with a jurisdiction.
+          </span>
+          <span class="lang-es">
+            Tanto en contextos residenciales como comerciales, hemos apoyado una variedad de tipos de proyectos, desde usos pequeños en el hogar y mejoras a propiedades hasta adecuaciones para inquilinos y cambios de uso. Esta experiencia ofrece una visión útil de cómo se evalúan los proyectos, qué problemas comunes surgen y cómo prepararse mejor antes de interactuar con una jurisdicción.
+          </span>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- TYPES OF PROJECTS -->
   <section>
     <div class="container">
       <div class="section-head">
-        <h2>Types of Projects We Help With</h2>
+        <h2>
+          <span class="lang-en">Types of Projects We Help With</span>
+          <span class="lang-es">Tipos de Proyectos con los que Ayudamos</span>
+        </h2>
         <p class="muted">
-          If you’re trying to figure out “can I do this?” or “what am I getting into?” — this is exactly where we help.
+          <span class="lang-en">
+            If you’re trying to figure out “can I do this?” or “what am I getting into?” this is exactly where we help.
+          </span>
+          <span class="lang-es">
+            Si está tratando de entender “¿puedo hacer esto?” o “¿en qué me estoy metiendo?”, aquí es exactamente donde ayudamos.
+          </span>
         </p>
       </div>
 
       <div class="grid-3">
-
         <div class="card service-card">
-          <h3>Home Projects</h3>
+          <h3>
+            <span class="lang-en">Home Projects</span>
+            <span class="lang-es">Proyectos Residenciales</span>
+          </h3>
           <p>
-            Thinking about converting a garage, adding a small unit, or making changes to your property? We help you understand what might be allowed, what could be an issue, and what to expect before you start.
+            <span class="lang-en">
+              Thinking about converting a garage, adding a small unit, or making changes to your property? We help you understand what might be allowed, what could be an issue, and what to expect before you start.
+            </span>
+            <span class="lang-es">
+              ¿Está pensando en convertir un garaje, agregar una unidad pequeña o hacer cambios en su propiedad? Le ayudamos a entender qué podría permitirse, qué podría ser un problema y qué esperar antes de comenzar.
+            </span>
           </p>
         </div>
 
         <div class="card service-card">
-          <h3>Starting or Running a Business</h3>
+          <h3>
+            <span class="lang-en">Starting or Running a Business</span>
+            <span class="lang-es">Iniciar o Manejar un Negocio</span>
+          </h3>
           <p>
-            Whether it’s a home-based business or a new commercial space, we help you understand what’s typically required, what could trigger additional review, and how to avoid surprises.
+            <span class="lang-en">
+              Whether it’s a home-based business or a new commercial space, we help you understand what is typically required, what could trigger additional review, and how to avoid surprises.
+            </span>
+            <span class="lang-es">
+              Ya sea un negocio desde casa o un nuevo espacio comercial, le ayudamos a entender qué suele requerirse, qué podría activar revisiones adicionales y cómo evitar sorpresas.
+            </span>
           </p>
         </div>
 
         <div class="card service-card">
-          <h3>Existing Project Issues</h3>
+          <h3>
+            <span class="lang-en">Existing Project Issues</span>
+            <span class="lang-es">Problemas con un Proyecto Existente</span>
+          </h3>
           <p>
-            Got comments back that don’t make sense? We break them down into plain English and help you understand what’s actually being asked.
+            <span class="lang-en">
+              Got comments back that do not make sense? We break them down into plain English and help you understand what is actually being asked.
+            </span>
+            <span class="lang-es">
+              ¿Recibió comentarios que no tienen sentido? Los desglosamos en lenguaje claro y le ayudamos a entender qué es lo que realmente están pidiendo.
+            </span>
           </p>
         </div>
 
         <div class="card service-card">
-          <h3>Before You Hire a Consultant</h3>
+          <h3>
+            <span class="lang-en">Before You Hire a Consultant</span>
+            <span class="lang-es">Antes de Contratar a un Consultor</span>
+          </h3>
           <p>
-            Not sure if you need an architect, engineer, or permit expediter yet? We help you understand the scope of your project so you can make that decision with confidence.
+            <span class="lang-en">
+              Not sure if you need an architect, engineer, or permit expediter yet? We help you understand the scope of your project so you can make that decision with confidence.
+            </span>
+            <span class="lang-es">
+              ¿No está seguro si ya necesita un arquitecto, ingeniero o gestor de permisos? Le ayudamos a entender el alcance de su proyecto para que pueda tomar esa decisión con confianza.
+            </span>
           </p>
         </div>
 
         <div class="card service-card">
-          <h3>“Can I Do This?” Questions</h3>
+          <h3>
+            <span class="lang-en">“Can I Do This?” Questions</span>
+            <span class="lang-es">Preguntas de “¿Puedo Hacer Esto?”</span>
+          </h3>
           <p>
-            Sometimes you just need a quick, honest read on an idea. We help you sanity-check your project before you invest time and money going down the wrong path.
+            <span class="lang-en">
+              Sometimes you just need a quick, honest read on an idea. We help you sanity-check your project before you invest time and money going down the wrong path.
+            </span>
+            <span class="lang-es">
+              A veces solo necesita una evaluación rápida y honesta de una idea. Le ayudamos a verificar su proyecto antes de invertir tiempo y dinero en la dirección equivocada.
+            </span>
           </p>
         </div>
 
         <div class="card service-card">
-          <h3>Early Project Planning</h3>
+          <h3>
+            <span class="lang-en">Early Project Planning</span>
+            <span class="lang-es">Planeación Temprana del Proyecto</span>
+          </h3>
           <p>
-            If you’re still in the idea stage, we help you understand the likely path forward so you can plan your next steps realistically.
+            <span class="lang-en">
+              If you’re still in the idea stage, we help you understand the likely path forward so you can plan your next steps realistically.
+            </span>
+            <span class="lang-es">
+              Si todavía está en la etapa de idea, le ayudamos a entender el camino probable a seguir para que pueda planear sus próximos pasos de manera realista.
+            </span>
           </p>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="container">
+      <div class="card value-card">
+        <h3>
+          <span class="lang-en">Spanish Language Support</span>
+          <span class="lang-es">Atención en Español</span>
+        </h3>
+        <p>
+          <span class="lang-en">
+            Spanish-language assistance may be available upon request. In some cases, translation or interpretation support may involve the use of AI-assisted language tools to help facilitate communication.
+          </span>
+          <span class="lang-es">
+            La asistencia en español puede estar disponible a solicitud. En algunos casos, la traducción o interpretación puede incluir el uso de herramientas de lenguaje asistidas por inteligencia artificial para facilitar la comunicación.
+          </span>
+        </p>
       </div>
     </div>
   </section>
@@ -425,10 +459,41 @@
   <footer class="footer">
     <div class="container">
       <p><strong>CA Zoning Assist</strong></p>
-      <p>Independent consulting for early-stage zoning, permit, and project feasibility questions.</p>
-      <p class="small"><p class="small"> Most inquiries are reviewed within 2–3 business days (excluding holidays). Pricing is based on scope, with clear, upfront quotes provided before any work begins — no surprises. In limited cases, alternative compensation arrangements may be considered. If you are interested in proposing a trade or exchange of goods or services, please indicate this in your inquiry for review.
+      <p>
+        <span class="lang-en">Independent consulting for early-stage permit, project, and feasibility questions.</span>
+        <span class="lang-es">Consultoría independiente para preguntas iniciales sobre permisos, proyectos y viabilidad.</span>
+      </p>
+      <p class="small">
+        <span class="lang-en">
+          Most inquiries are reviewed within 2–3 business days, excluding holidays. Pricing is based on scope, with clear, upfront quotes provided before any work begins. In limited cases, alternative compensation arrangements may be considered. If you would like to propose a trade or exchange of goods or services, please indicate that in your inquiry for review.
+        </span>
+        <span class="lang-es">
+          La mayoría de las consultas se revisan dentro de 2 a 3 días hábiles, excluyendo días festivos. Los precios se basan en el alcance del trabajo, con cotizaciones claras y por adelantado antes de comenzar. En casos limitados, se pueden considerar acuerdos alternativos de compensación. Si desea proponer un intercambio de bienes o servicios, indíquelo en su consulta para evaluación.
+        </span>
       </p>
     </div>
   </footer>
 
+  <script>
+    const langToggle = document.getElementById('langToggle');
+    const root = document.documentElement;
+
+    function getCurrentLang() {
+      return root.getAttribute('lang') === 'es' ? 'es' : 'en';
+    }
+
+    function setLanguage(lang) {
+      root.setAttribute('lang', lang);
+      localStorage.setItem('siteLang', lang);
+      langToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    }
+
+    const savedLang = localStorage.getItem('siteLang') || 'en';
+    setLanguage(savedLang);
+
+    langToggle.addEventListener('click', function () {
+      setLanguage(getCurrentLang() === 'en' ? 'es' : 'en');
+    });
+  </script>
 </body>
+</html>
