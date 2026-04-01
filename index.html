@@ -602,149 +602,170 @@
     </section>
 
     <section id="intake">
-      <div class="container">
-        <div class="section-head">
-          <h2>
-            <span class="lang-en">Project Questionnaire</span>
-            <span class="lang-es">Cuestionario del Proyecto</span>
-          </h2>
-          <p class="muted">
-            <span class="lang-en">
-              Fill this out and click <strong>Generate Inquiry</strong>. The page will build a message you can copy and send by email.
-            </span>
-            <span class="lang-es">
-              Complete esto y haga clic en <strong>Generar Consulta</strong>. La página creará un mensaje que podrá copiar y enviar por correo electrónico.
-            </span>
-          </p>
+  <div class="container">
+    <div class="section-head">
+      <h2>
+        <span class="lang-en">Project Questionnaire</span>
+        <span class="lang-es">Cuestionario del Proyecto</span>
+      </h2>
+      <p class="muted">
+        <span class="lang-en">
+          Fill this out and click <strong>Generate Inquiry</strong>. The page will build a message you can copy and send by email.
+        </span>
+        <span class="lang-es">
+          Complete esto y haga clic en <strong>Generar Consulta</strong>. La página creará un mensaje que podrá copiar y enviar por correo electrónico.
+        </span>
+      </p>
+    </div>
+
+    <div class="card form-wrap">
+      <form id="intakeForm">
+        <div class="field-grid">
+          <div>
+            <label for="name">
+              <span class="lang-en">Name</span>
+              <span class="lang-es">Nombre</span>
+            </label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">
+              <span class="lang-en">Email</span>
+              <span class="lang-es">Correo Electrónico</span>
+            </label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
         </div>
 
-        <div class="card form-wrap">
-          <form id="intakeForm">
-            <div class="field-grid">
-              <div>
-                <label for="name">
-                  <span class="lang-en">Name</span>
-                  <span class="lang-es">Nombre</span>
-                </label>
-                <input id="name" name="name" type="text" placeholder="Your name / Su nombre" />
-              </div>
-              <div>
-                <label for="email">
-                  <span class="lang-en">Email</span>
-                  <span class="lang-es">Correo Electrónico</span>
-                </label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" />
-              </div>
-            </div>
+        <div class="field-grid">
+          <div>
+            <label for="phone">
+              <span class="lang-en">Phone</span>
+              <span class="lang-es">Teléfono</span>
+            </label>
+            <input id="phone" name="phone" type="text" placeholder="Optional" />
+          </div>
+          <div>
+            <label for="propertyType">
+              <span class="lang-en">Property Type</span>
+              <span class="lang-es">Tipo de Propiedad</span>
+            </label>
+            <select id="propertyType" name="propertyType">
+              <option value="" class="lang-en">Select one</option>
+              <option value="" class="lang-es">Seleccione una opción</option>
 
-            <div class="field-grid">
-              <div>
-                <label for="phone">
-                  <span class="lang-en">Phone</span>
-                  <span class="lang-es">Teléfono</span>
-                </label>
-                <input id="phone" name="phone" type="text" placeholder="Optional / Opcional" />
-              </div>
-              <div>
-                <label for="propertyType">
-                  <span class="lang-en">Property Type</span>
-                  <span class="lang-es">Tipo de Propiedad</span>
-                </label>
-                <select id="propertyType" name="propertyType">
-                  <option value="">
-                    <span class="lang-en">Select one</span>
-                    <span class="lang-es">Seleccione una opción</span>
-                  </option>
-                  <option>Single-family residential / Residencial unifamiliar</option>
-                  <option>Multi-family residential / Residencial multifamiliar</option>
-                  <option>Commercial / Comercial</option>
-                  <option>Industrial / Industrial</option>
-                  <option>Mixed-use / Uso mixto</option>
-                  <option>Vacant land / Terreno vacante</option>
-                  <option>Other / Otro</option>
-                </select>
-              </div>
-            </div>
+              <option value="Single-family residential" class="lang-en">Single-family residential</option>
+              <option value="Residencial unifamiliar" class="lang-es">Residencial unifamiliar</option>
 
-            <div class="field-grid">
-              <div>
-                <label for="location">
-                  <span class="lang-en">Property Address or City</span>
-                  <span class="lang-es">Dirección de la Propiedad o Ciudad</span>
-                </label>
-                <input id="location" name="location" type="text" placeholder="Address, APN, or at least the city / Dirección, APN, o al menos la ciudad" />
-              </div>
-              <div>
-                <label for="serviceType">
-                  <span class="lang-en">Type of Help Needed</span>
-                  <span class="lang-es">Tipo de Ayuda Necesaria</span>
-                </label>
-                <select id="serviceType" name="serviceType">
-                  <option value="">Select one / Seleccione una opción</option>
-                  <option>Project feasibility review / Revisión de viabilidad del proyecto</option>
-                  <option>Correction letter review / Revisión de comentarios</option>
-                  <option>Pre-submittal reality check / Revisión antes de presentar</option>
-                  <option>General project/process guidance / Orientación general del proceso</option>
-                </select>
-              </div>
-            </div>
+              <option value="Multi-family residential" class="lang-en">Multi-family residential</option>
+              <option value="Residencial multifamiliar" class="lang-es">Residencial multifamiliar</option>
 
-            <div>
-              <label for="projectSummary">
-                <span class="lang-en">Describe the project or question</span>
-                <span class="lang-es">Describa el proyecto o la pregunta</span>
-              </label>
-              <textarea id="projectSummary" name="projectSummary" placeholder="Example / Ejemplo: I want to convert an existing garage space into a small unit and need to understand likely permit issues."></textarea>
-            </div>
+              <option value="Commercial" class="lang-en">Commercial</option>
+              <option value="Comercial" class="lang-es">Comercial</option>
 
-            <div>
-              <label for="materials">
-                <span class="lang-en">Do you already have any materials?</span>
-                <span class="lang-es">¿Ya tiene materiales o documentos?</span>
-              </label>
-              <textarea id="materials" name="materials" placeholder="Plans, site plan, correction letter, photos, prior emails, permit comments, etc. / Planos, plano del sitio, comentarios, fotos, correos previos, etc."></textarea>
-              <div class="form-note">
-                <span class="lang-en">Please indicate the type of materials you have and how you would like to share them (email attachment, Dropbox link, etc.).</span>
-                <span class="lang-es">Indique qué tipo de materiales tiene y cómo le gustaría compartirlos (archivo adjunto por correo, enlace de Dropbox, etc.).</span>
-              </div>
-            </div>
+              <option value="Industrial" class="lang-en">Industrial</option>
+              <option value="Industrial" class="lang-es">Industrial</option>
 
-            <div>
-              <label for="timeline">
-                <span class="lang-en">Timeline or urgency</span>
-                <span class="lang-es">Plazo o urgencia</span>
-              </label>
-              <input id="timeline" name="timeline" type="text" placeholder="Example / Ejemplo: Just exploring / Need help this week / Responding to comments" />
-            </div>
+              <option value="Mixed-use" class="lang-en">Mixed-use</option>
+              <option value="Uso mixto" class="lang-es">Uso mixto</option>
 
-            <div>
-              <label for="goals">
-                <span class="lang-en">What outcome are you hoping for?</span>
-                <span class="lang-es">¿Qué resultado espera obtener?</span>
-              </label>
-              <textarea id="goals" name="goals" placeholder="Example / Ejemplo: I want to know whether this seems feasible and what issues are likely before I hire a designer."></textarea>
-            </div>
+              <option value="Vacant land" class="lang-en">Vacant land</option>
+              <option value="Terreno vacante" class="lang-es">Terreno vacante</option>
 
-            <div class="hero-actions">
-              <button class="btn btn-primary" type="submit">
-                <span class="lang-en">Generate Inquiry</span>
-                <span class="lang-es">Generar Consulta</span>
-              </button>
-              <button class="btn btn-secondary" type="button" id="copyBtn">
-                <span class="lang-en">Copy Text</span>
-                <span class="lang-es">Copiar Texto</span>
-              </button>
-              <button class="btn btn-secondary" type="button" id="emailBtn">
-                <span class="lang-en">Open Email Draft</span>
-                <span class="lang-es">Abrir Borrador de Correo</span>
-              </button>
-            </div>
-          </form>
-
-          <div id="output" class="output"></div>
+              <option value="Other" class="lang-en">Other</option>
+              <option value="Otro" class="lang-es">Otro</option>
+            </select>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div class="field-grid">
+          <div>
+            <label for="location">
+              <span class="lang-en">Property Address or City</span>
+              <span class="lang-es">Dirección de la Propiedad o Ciudad</span>
+            </label>
+            <input id="location" name="location" type="text" placeholder="Address, APN, or at least the city" />
+          </div>
+          <div>
+            <label for="serviceType">
+              <span class="lang-en">Type of Help Needed</span>
+              <span class="lang-es">Tipo de Ayuda Necesaria</span>
+            </label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="" class="lang-en">Select one</option>
+              <option value="" class="lang-es">Seleccione una opción</option>
+
+              <option value="Project feasibility review" class="lang-en">Project feasibility review</option>
+              <option value="Revisión de viabilidad del proyecto" class="lang-es">Revisión de viabilidad del proyecto</option>
+
+              <option value="Correction letter review" class="lang-en">Correction letter review</option>
+              <option value="Revisión de comentarios" class="lang-es">Revisión de comentarios</option>
+
+              <option value="Pre-submittal reality check" class="lang-en">Pre-submittal reality check</option>
+              <option value="Revisión antes de presentar" class="lang-es">Revisión antes de presentar</option>
+
+              <option value="General project/process guidance" class="lang-en">General project/process guidance</option>
+              <option value="Orientación general del proceso" class="lang-es">Orientación general del proceso</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="projectSummary">
+            <span class="lang-en">Describe the project or question</span>
+            <span class="lang-es">Describa el proyecto o la pregunta</span>
+          </label>
+          <textarea id="projectSummary" name="projectSummary" placeholder="Example: I want to convert an existing garage space into a small unit and need to understand likely permit issues."></textarea>
+        </div>
+
+        <div>
+          <label for="materials">
+            <span class="lang-en">Do you already have any materials?</span>
+            <span class="lang-es">¿Ya tiene materiales o documentos?</span>
+          </label>
+          <textarea id="materials" name="materials" placeholder="Plans, site plan, correction letter, photos, prior emails, permit comments, etc."></textarea>
+          <div class="form-note">
+            <span class="lang-en">Please indicate the type of materials you have and how you would like to share them (email attachment, Dropbox link, etc.).</span>
+            <span class="lang-es">Indique qué tipo de materiales tiene y cómo le gustaría compartirlos (archivo adjunto por correo, enlace de Dropbox, etc.).</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="timeline">
+            <span class="lang-en">Timeline or urgency</span>
+            <span class="lang-es">Plazo o urgencia</span>
+          </label>
+          <input id="timeline" name="timeline" type="text" placeholder="Example: Just exploring / Need help this week / Responding to comments" />
+        </div>
+
+        <div>
+          <label for="goals">
+            <span class="lang-en">What outcome are you hoping for?</span>
+            <span class="lang-es">¿Qué resultado espera obtener?</span>
+          </label>
+          <textarea id="goals" name="goals" placeholder="Example: I want to know whether this seems feasible and what issues are likely before I hire a designer."></textarea>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="submit">
+            <span class="lang-en">Generate Inquiry</span>
+            <span class="lang-es">Generar Consulta</span>
+          </button>
+          <button class="btn btn-secondary" type="button" id="copyBtn">
+            <span class="lang-en">Copy Text</span>
+            <span class="lang-es">Copiar Texto</span>
+          </button>
+          <button class="btn btn-secondary" type="button" id="emailBtn">
+            <span class="lang-en">Open Email Draft</span>
+            <span class="lang-es">Abrir Borrador de Correo</span>
+          </button>
+        </div>
+      </form>
+
+      <div id="output" class="output"></div>
+    </div>
+  </div>
+</section>
 
     <section>
       <div class="container">
@@ -784,129 +805,194 @@
     </div>
   </footer>
 
-  <script>
-    const form = document.getElementById('intakeForm');
-    const output = document.getElementById('output');
-    const copyBtn = document.getElementById('copyBtn');
-    const emailBtn = document.getElementById('emailBtn');
-    const langToggle = document.getElementById('langToggle');
-    const root = document.documentElement;
+ <script>
+  const form = document.getElementById('intakeForm');
+  const output = document.getElementById('output');
+  const copyBtn = document.getElementById('copyBtn');
+  const emailBtn = document.getElementById('emailBtn');
+  const langToggle = document.getElementById('langToggle');
+  const root = document.documentElement;
 
-    function getCurrentLang() {
-      return root.getAttribute('lang') === 'es' ? 'es' : 'en';
-    }
+  function getCurrentLang() {
+    return root.getAttribute('lang') === 'es' ? 'es' : 'en';
+  }
 
-    function setLanguage(lang) {
-      root.setAttribute('lang', lang);
-      localStorage.setItem('siteLang', lang);
-      langToggle.textContent = lang === 'en' ? 'Español' : 'English';
-    }
+  function updateSelectLanguage(selectId, lang) {
+    const select = document.getElementById(selectId);
+    const currentValue = select.value;
 
-    const savedLang = localStorage.getItem('siteLang') || 'en';
-    setLanguage(savedLang);
-
-    langToggle.addEventListener('click', function () {
-      setLanguage(getCurrentLang() === 'en' ? 'es' : 'en');
+    Array.from(select.options).forEach(option => {
+      option.hidden = !option.classList.contains(`lang-${lang}`);
     });
 
-    function buildInquiry(data) {
-      const lang = getCurrentLang();
+    const visibleOptions = Array.from(select.options).filter(option =>
+      option.classList.contains(`lang-${lang}`)
+    );
 
-      if (lang === 'es') {
-        return [
-          'Nueva Consulta de Cliente',
-          '=========================',
-          '',
-          `Nombre: ${data.name || 'No proporcionado'}`,
-          `Correo Electrónico: ${data.email || 'No proporcionado'}`,
-          `Teléfono: ${data.phone || 'No proporcionado'}`,
-          `Tipo de Propiedad: ${data.propertyType || 'No proporcionado'}`,
-          `Ubicación: ${data.location || 'No proporcionado'}`,
-          `Servicio Solicitado: ${data.serviceType || 'No proporcionado'}`,
-          `Plazo: ${data.timeline || 'No proporcionado'}`,
-          '',
-          'Resumen del Proyecto:',
-          data.projectSummary || 'No proporcionado',
-          '',
-          'Materiales Existentes:',
-          data.materials || 'No proporcionado',
-          '',
-          'Resultado Deseado:',
-          data.goals || 'No proporcionado'
-        ].join('\n');
-      }
+    const matchingOption = visibleOptions.find(option => option.value === currentValue);
 
+    if (matchingOption) {
+      select.value = currentValue;
+    } else {
+      select.selectedIndex = Array.from(select.options).findIndex(option =>
+        option.classList.contains(`lang-${lang}`)
+      );
+    }
+  }
+
+  function updateFormLanguage(lang) {
+    document.getElementById('name').placeholder =
+      lang === 'es' ? 'Su nombre' : 'Your name';
+
+    document.getElementById('phone').placeholder =
+      lang === 'es' ? 'Opcional' : 'Optional';
+
+    document.getElementById('location').placeholder =
+      lang === 'es'
+        ? 'Dirección, APN, o al menos la ciudad'
+        : 'Address, APN, or at least the city';
+
+    document.getElementById('timeline').placeholder =
+      lang === 'es'
+        ? 'Ejemplo: Solo explorando / Necesito ayuda esta semana / Respondiendo a comentarios'
+        : 'Example: Just exploring / Need help this week / Responding to comments';
+
+    document.getElementById('projectSummary').placeholder =
+      lang === 'es'
+        ? 'Ejemplo: Quiero convertir un espacio de garaje existente en una unidad pequeña y necesito entender los posibles requisitos.'
+        : 'Example: I want to convert an existing garage space into a small unit and need to understand likely permit issues.';
+
+    document.getElementById('materials').placeholder =
+      lang === 'es'
+        ? 'Planos, plano del sitio, carta de comentarios, fotos, correos previos, comentarios del permiso, etc.'
+        : 'Plans, site plan, correction letter, photos, prior emails, permit comments, etc.';
+
+    document.getElementById('goals').placeholder =
+      lang === 'es'
+        ? 'Ejemplo: Quiero saber si esto parece viable y qué problemas pueden surgir antes de contratar a un diseñador.'
+        : 'Example: I want to know whether this seems feasible and what issues are likely before I hire a designer.';
+
+    updateSelectLanguage('propertyType', lang);
+    updateSelectLanguage('serviceType', lang);
+  }
+
+  function setLanguage(lang) {
+    root.setAttribute('lang', lang);
+    localStorage.setItem('siteLang', lang);
+    langToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    updateFormLanguage(lang);
+  }
+
+  const savedLang = localStorage.getItem('siteLang') || 'en';
+  setLanguage(savedLang);
+
+  langToggle.addEventListener('click', function () {
+    setLanguage(getCurrentLang() === 'en' ? 'es' : 'en');
+  });
+
+  function buildInquiry(data) {
+    const lang = getCurrentLang();
+
+    if (lang === 'es') {
       return [
-        'New Client Inquiry',
-        '===================',
+        'Nueva Consulta de Cliente',
+        '=========================',
         '',
-        `Name: ${data.name || 'Not provided'}`,
-        `Email: ${data.email || 'Not provided'}`,
-        `Phone: ${data.phone || 'Not provided'}`,
-        `Property Type: ${data.propertyType || 'Not provided'}`,
-        `Location: ${data.location || 'Not provided'}`,
-        `Requested Service: ${data.serviceType || 'Not provided'}`,
-        `Timeline: ${data.timeline || 'Not provided'}`,
+        `Nombre: ${data.name || 'No proporcionado'}`,
+        `Correo Electrónico: ${data.email || 'No proporcionado'}`,
+        `Teléfono: ${data.phone || 'No proporcionado'}`,
+        `Tipo de Propiedad: ${data.propertyType || 'No proporcionado'}`,
+        `Ubicación: ${data.location || 'No proporcionado'}`,
+        `Servicio Solicitado: ${data.serviceType || 'No proporcionado'}`,
+        `Plazo: ${data.timeline || 'No proporcionado'}`,
         '',
-        'Project Summary:',
-        data.projectSummary || 'Not provided',
+        'Resumen del Proyecto:',
+        data.projectSummary || 'No proporcionado',
         '',
-        'Existing Materials:',
-        data.materials || 'Not provided',
+        'Materiales Existentes:',
+        data.materials || 'No proporcionado',
         '',
-        'Desired Outcome:',
-        data.goals || 'Not provided'
+        'Resultado Deseado:',
+        data.goals || 'No proporcionado'
       ].join('\n');
     }
 
-    let latestInquiry = '';
+    return [
+      'New Client Inquiry',
+      '===================',
+      '',
+      `Name: ${data.name || 'Not provided'}`,
+      `Email: ${data.email || 'Not provided'}`,
+      `Phone: ${data.phone || 'Not provided'}`,
+      `Property Type: ${data.propertyType || 'Not provided'}`,
+      `Location: ${data.location || 'Not provided'}`,
+      `Requested Service: ${data.serviceType || 'Not provided'}`,
+      `Timeline: ${data.timeline || 'Not provided'}`,
+      '',
+      'Project Summary:',
+      data.projectSummary || 'Not provided',
+      '',
+      'Existing Materials:',
+      data.materials || 'Not provided',
+      '',
+      'Desired Outcome:',
+      data.goals || 'Not provided'
+    ].join('\n');
+  }
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      latestInquiry = buildInquiry(data);
-      output.style.display = 'block';
-      output.textContent = latestInquiry;
-      output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+  let latestInquiry = '';
 
-    copyBtn.addEventListener('click', async function () {
-      if (!latestInquiry) {
-        alert(getCurrentLang() === 'es'
-          ? 'Primero genere la consulta.'
-          : 'Please generate the inquiry first.');
-        return;
-      }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-      try {
-        await navigator.clipboard.writeText(latestInquiry);
-        alert(getCurrentLang() === 'es'
-          ? 'Consulta copiada al portapapeles.'
-          : 'Inquiry copied to clipboard.');
-      } catch (err) {
-        alert(getCurrentLang() === 'es'
-          ? 'No se pudo copiar. Aún puede copiar manualmente el texto.'
-          : 'Copy failed. You can still manually copy the text below.');
-      }
-    });
+    if (!form.reportValidity()) {
+      return;
+    }
 
-    emailBtn.addEventListener('click', function () {
-      if (!latestInquiry) {
-        alert(getCurrentLang() === 'es'
-          ? 'Primero genere la consulta.'
-          : 'Please generate the inquiry first.');
-        return;
-      }
+    const data = Object.fromEntries(new FormData(form).entries());
+    latestInquiry = buildInquiry(data);
+    output.style.display = 'block';
+    output.textContent = latestInquiry;
+    output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
 
-      const yourEmail = 'cazoningassist@gmail.com';
-      const subject = encodeURIComponent(
-        getCurrentLang() === 'es'
-          ? 'Nueva Consulta de Proyecto / Permiso'
-          : 'New Project / Permit Inquiry'
-      );
-      const body = encodeURIComponent(latestInquiry);
-      window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
-    });
-  </script>
+  copyBtn.addEventListener('click', async function () {
+    if (!latestInquiry) {
+      alert(getCurrentLang() === 'es'
+        ? 'Primero genere la consulta.'
+        : 'Please generate the inquiry first.');
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(latestInquiry);
+      alert(getCurrentLang() === 'es'
+        ? 'Consulta copiada al portapapeles.'
+        : 'Inquiry copied to clipboard.');
+    } catch (err) {
+      alert(getCurrentLang() === 'es'
+        ? 'No se pudo copiar. Aún puede copiar manualmente el texto.'
+        : 'Copy failed. You can still manually copy the text below.');
+    }
+  });
+
+  emailBtn.addEventListener('click', function () {
+    if (!latestInquiry) {
+      alert(getCurrentLang() === 'es'
+        ? 'Primero genere la consulta.'
+        : 'Please generate the inquiry first.');
+      return;
+    }
+
+    const yourEmail = 'cazoningassist@gmail.com';
+    const subject = encodeURIComponent(
+      getCurrentLang() === 'es'
+        ? 'Nueva Consulta de Proyecto / Permiso'
+        : 'New Project / Permit Inquiry'
+    );
+    const body = encodeURIComponent(latestInquiry);
+    window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
+  });
+</script>
 </body>
 </html>
