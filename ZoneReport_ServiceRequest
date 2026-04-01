@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CA Zoning Assist</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #1f4f46;
+      --accent-2: #2e6b5f;
+      --soft: #eef5f3;
+      --shadow: 0 10px 25px rgba(0,0,0,0.06);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(247,247,245,0.88);
+      border-bottom: 1px solid rgba(229,231,235,0.85);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 2.25rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--accent);
+      border: 1px solid #dbe9e5;
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 0.75rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
+    h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+    h3 { font-size: 1.1rem; }
+
+    p { margin: 0 0 1rem; }
+    .lead {
+      font-size: 1.08rem;
+      color: #374151;
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 0.85rem 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero-side {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+      background: linear-gradient(180deg, #f5fbf9 0%, #ffffff 100%);
+    }
+
+    .mini-stat {
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    section {
+      padding: 1rem 0 2rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.25rem;
+      max-width: 70ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card, .value-card {
+      padding: 1.25rem;
+    }
+
+    .service-card p,
+    .value-card p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .checklist {
+      padding-left: 1.1rem;
+      margin: 0.75rem 0 0;
+    }
+
+    .checklist li { margin-bottom: 0.45rem; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-wrap {
+      padding: 1.5rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 0.85rem 0.95rem;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid rgba(31,79,70,0.18);
+      border-color: var(--accent-2);
+    }
+
+    .form-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: -0.35rem;
+    }
+
+    .output {
+      margin-top: 1rem;
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 14px;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: none;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .two-col,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .hero-copy,
+      .hero-side,
+      .form-wrap {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">CA Zoning Assist</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#value">Why This Helps</a>
+        <a href="#intake">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="card hero-copy">
+        <div class="eyebrow">Independent permit + zoning guidance</div>
+        <h1>Clarity before you contact the City.</h1>
+        <p class="lead">
+          I help homeowners, small business owners, and property owners understand likely zoning and permit issues before they spend time on applications, revisions, or consultant fees.
+        </p>
+        <p>
+          Whether you are exploring an ADU, a home occupation, a tenant improvement, a new business use, or a property change that feels confusing, I provide a plain-English review of what may apply, what issues may come up, and what questions you should be ready to answer.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#intake">Start the Questionnaire</a>
+          <a class="btn btn-secondary" href="#services">See Services</a>
+        </div>
+        <p class="small" style="margin-top: 1rem;">
+          Not affiliated with any city, county, or public agency. Independent consulting only.
+        </p>
+      </div>
+
+      <div class="card hero-side">
+        <div class="mini-stat">
+          <strong>What you get</strong>
+          A practical first-pass review of your project idea, likely issues, and next-step questions.
+        </div>
+        <div class="mini-stat">
+          <strong>Best for</strong>
+          Early feasibility, correction-letter confusion, and projects that need a clearer path before formal submittal.
+        </div>
+        <div class="mini-stat">
+          <strong>Common topics</strong>
+          ADUs, garages, home occupations, business uses, parking questions, use changes, and permit process guidance.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p class="muted">
+            Simple, focused help for clients who want to understand the likely rules, risks, and path forward before committing to a full design or permit process.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card service-card">
+            <h3>Project Feasibility Review</h3>
+            <p>A first-pass review of a property idea such as an ADU, home business, tenant improvement, or proposed change in use.</p>
+            <ul class="checklist">
+              <li>Likely zoning and land use issues</li>
+              <li>Questions a jurisdiction may ask</li>
+              <li>Recommended next steps</li>
+            </ul>
+          </div>
+          <div class="card service-card">
+            <h3>Correction Letter Decoder</h3>
+            <p>Translation of planning or permit comments into plain English, with practical suggestions on how to organize a response.</p>
+            <ul class="checklist">
+              <li>Comment summary</li>
+              <li>Issue grouping by topic</li>
+              <li>Suggested response strategy</li>
+            </ul>
+          </div>
+          <div class="card service-card">
+            <h3>Pre-Submittal Reality Check</h3>
+            <p>A light review intended to identify common land use and process issues before formal filing.</p>
+            <ul class="checklist">
+              <li>Potential red flags</li>
+              <li>Missing information</li>
+              <li>Scope and process observations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="value">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why this helps</h2>
+          <p class="muted">
+            Many people do not need full representation right away. They just need to understand what they are walking into.
+          </p>
+        </div>
+        <div class="two-col">
+          <div class="card value-card">
+            <h3>The value</h3>
+            <ul class="checklist">
+              <li>Reduce uncertainty before spending heavily on plans or consultants</li>
+              <li>Understand likely zoning and permit questions earlier</li>
+              <li>Avoid preventable application delays</li>
+              <li>Get a cleaner picture of your project path</li>
+            </ul>
+          </div>
+          <div class="card value-card">
+            <h3>What this is not</h3>
+            <ul class="checklist">
+              <li>Not legal advice</li>
+              <li>Not engineering, architectural, or surveying services</li>
+              <li>Not a guarantee of jurisdictional approval</li>
+              <li>Not affiliated with any city, county, or agency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intake">
+      <div class="container">
+        <div class="section-head">
+          <h2>Project questionnaire</h2>
+          <p class="muted">
+            Fill this out and click <strong>Generate Inquiry</strong>. The page will build a message you can copy and send by email.
+          </p>
+        </div>
+
+        <div class="card form-wrap">
+          <form id="intakeForm">
+            <div class="field-grid">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="text" placeholder="Optional" />
+              </div>
+              <div>
+                <label for="propertyType">Property Type</label>
+                <select id="propertyType" name="propertyType">
+                  <option value="">Select one</option>
+                  <option>Single-family residential</option>
+                  <option>Multi-family residential</option>
+                  <option>Commercial</option>
+                  <option>Industrial</option>
+                  <option>Mixed-use</option>
+                  <option>Vacant land</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div>
+                <label for="location">Property Address or City</label>
+                <input id="location" name="location" type="text" placeholder="Address, APN, or at least the city" />
+              </div>
+              <div>
+                <label for="serviceType">Type of Help Needed</label>
+                <select id="serviceType" name="serviceType">
+                  <option value="">Select one</option>
+                  <option>Project feasibility review</option>
+                  <option>Correction letter review</option>
+                  <option>Pre-submittal reality check</option>
+                  <option>General zoning/process guidance</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="projectSummary">Describe the project or question</label>
+              <textarea id="projectSummary" name="projectSummary" placeholder="Example: I want to convert an existing garage space into a small ADU and need to understand likely zoning and permit issues."></textarea>
+            </div>
+
+            <div>
+              <label for="materials">Do you already have any materials?</label>
+              <textarea id="materials" name="materials" placeholder="Plans, site plan, correction letter, photos, prior emails, permit comments, etc."></textarea>
+              <div class="form-note">For a GitHub-hosted site, file upload is not included in this version. Clients can mention what they have and send files later by email.</div>
+            </div>
+
+            <div>
+              <label for="timeline">Timeline or urgency</label>
+              <input id="timeline" name="timeline" type="text" placeholder="Example: Just exploring / Need help this week / Responding to comments" />
+            </div>
+
+            <div>
+              <label for="goals">What outcome are you hoping for?</label>
+              <textarea id="goals" name="goals" placeholder="Example: I want to know whether this seems feasible and what issues are likely before I hire a designer."></textarea>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="submit">Generate Inquiry</button>
+              <button class="btn btn-secondary" type="button" id="copyBtn">Copy Text</button>
+              <button class="btn btn-secondary" type="button" id="emailBtn">Open Email Draft</button>
+            </div>
+          </form>
+
+          <div id="output" class="output"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>CA Zoning Assist</strong></p>
+      <p>Independent consulting for early-stage zoning, permit, and project feasibility questions.</p>
+      <p class="small">Replace this text with your preferred contact email, service area, pricing language, or turnaround time.</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('intakeForm');
+    const output = document.getElementById('output');
+    const copyBtn = document.getElementById('copyBtn');
+    const emailBtn = document.getElementById('emailBtn');
+
+    function buildInquiry(data) {
+      return [
+        'New Client Inquiry',
+        '===================',
+        '',
+        `Name: ${data.name || 'Not provided'}`,
+        `Email: ${data.email || 'Not provided'}`,
+        `Phone: ${data.phone || 'Not provided'}`,
+        `Property Type: ${data.propertyType || 'Not provided'}`,
+        `Location: ${data.location || 'Not provided'}`,
+        `Requested Service: ${data.serviceType || 'Not provided'}`,
+        `Timeline: ${data.timeline || 'Not provided'}`,
+        '',
+        'Project Summary:',
+        data.projectSummary || 'Not provided',
+        '',
+        'Existing Materials:',
+        data.materials || 'Not provided',
+        '',
+        'Desired Outcome:',
+        data.goals || 'Not provided'
+      ].join('\n');
+    }
+
+    let latestInquiry = '';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      latestInquiry = buildInquiry(data);
+      output.style.display = 'block';
+      output.textContent = latestInquiry;
+      output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    copyBtn.addEventListener('click', async function () {
+      if (!latestInquiry) {
+        alert('Please generate the inquiry first.');
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(latestInquiry);
+        alert('Inquiry copied to clipboard.');
+      } catch (err) {
+        alert('Copy failed. You can still manually copy the text below.');
+      }
+    });
+
+    emailBtn.addEventListener('click', function () {
+      if (!latestInquiry) {
+        alert('Please generate the inquiry first.');
+        return;
+      }
+
+      const yourEmail = 'replace-this@example.com';
+      const subject = encodeURIComponent('New Zoning / Permit Inquiry');
+      const body = encodeURIComponent(latestInquiry);
+      window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
